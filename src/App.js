@@ -196,7 +196,7 @@ const XmasGamesSite = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Star className="text-yellow-400 fill-yellow-400" size={32} />
             <h1 className="text-5xl font-bold text-red-600" style={{ textShadow: '2px 2px 0px #fff, 4px 4px 0px rgba(0,0,0,0.1)' }}>
-              🎄 KONG Xmas Games
+              🎄 🐵 Xmas Games 🎄
             </h1>
             <Star className="text-yellow-400 fill-yellow-400" size={32} />
           </div>
@@ -258,15 +258,20 @@ const XmasGamesSite = () => {
                           e.stopPropagation();
                           toggleGameCompletion(game.id);
                         }}
-                        className={`ml-2 w-6 h-6 rounded border-2 flex items-center justify-center transition-all ${
+                        className={`ml-3 px-3 py-1 rounded-lg flex items-center justify-center gap-2 transition-all text-sm font-semibold ${
                           completedGames.includes(game.id)
-                            ? 'bg-green-500 border-green-600'
-                            : 'bg-white border-gray-300 hover:border-green-400'
+                            ? 'bg-green-500 text-white border-2 border-green-700'
+                            : 'bg-gray-100 text-gray-600 border-2 border-gray-300 hover:border-green-500 hover:bg-green-50'
                         }`}
                       >
                         {completedGames.includes(game.id) && (
-                          <span className="text-white font-bold text-sm">✓</span>
+                          <span className="w-4 h-4 rounded border-2 flex items-center justify-center bg-white border-white">
+                            <span className="text-green-600 font-bold text-xs">✓</span>
+                          </span>
                         )}
+                        <span className="text-xs whitespace-nowrap">
+                          {completedGames.includes(game.id) ? 'Completed' : 'Not Complete'}
+                        </span>
                       </button>
                     )}
                   </button>
@@ -301,24 +306,28 @@ const XmasGamesSite = () => {
               <h2 className="text-4xl font-bold text-red-600 mb-2 flex items-center justify-center gap-3">
                 {games[selectedGame - 1].title}
                 <span className="text-3xl">{games[selectedGame - 1].isTeam ? '👥' : '👤'}</span>
-                {selectedGame !== 8 && (
+              </h2>
+              {selectedGame !== 8 && (
+                <div className="flex justify-center">
                   <button
                     onClick={() => toggleGameCompletion(selectedGame)}
-                    className={`ml-3 w-10 h-10 rounded-lg border-2 flex items-center justify-center transition-all ${
+                    className={`mt-4 px-6 py-3 rounded-lg flex items-center justify-center gap-3 transition-all text-lg font-bold ${
                       completedGames.includes(selectedGame)
-                        ? 'bg-green-500 border-green-600'
-                        : 'bg-white border-gray-300 hover:border-green-400'
+                        ? 'bg-green-500 text-white border-4 border-green-700 shadow-lg'
+                        : 'bg-white text-gray-700 border-4 border-gray-300 hover:border-green-500 hover:bg-green-50 shadow-md'
                     }`}
                   >
                     {completedGames.includes(selectedGame) && (
-                      <span className="text-white font-bold text-xl">✓</span>
+                      <span className="w-6 h-6 rounded border-3 flex items-center justify-center bg-white border-white">
+                        <span className="text-green-600 font-bold text-lg">✓</span>
+                      </span>
                     )}
+                    <span>
+                      {completedGames.includes(selectedGame) ? 'Completed' : 'Not Complete'}
+                    </span>
                   </button>
-                )}
-              </h2>
-              <p className="text-lg text-gray-600 font-semibold">
-                {games[selectedGame - 1].isTeam ? 'Team Game' : 'Individual Game'}
-              </p>
+                </div>
+              )}
             </div>
 
             {games[selectedGame - 1].isSpecial ? (
