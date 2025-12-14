@@ -1,15 +1,38 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>KONG Christmas Games 🎄</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎄 KONG Xmas Games</title>
+  <meta name="description" content="KONG Christmas Games — quick rules with cute dropdown menus." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="badge">🎄 KONG Xmas Games</div>
+      <h1>Christmas Party Games 🎅✨</h1>
+      <p class="sub">
+        Tap a game to expand the rules. Perfect on mobile 📱
+      </p>
 
-  <div id="app"></div>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search games or materials… (e.g., balloon, bucket)" />
+        <button id="expandAll" type="button">Expand all</button>
+        <button id="collapseAll" type="button">Collapse all</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="games" class="games" aria-label="Game list">
+      <!-- injected by app.js -->
+    </section>
+
+    <footer class="footer">
+      <div>🎁 Tip: Share this page link with everyone so nobody argues about the rules 😄</div>
+    </footer>
+  </main>
 
   <script src="app.js"></script>
 </body>
