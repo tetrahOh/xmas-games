@@ -72,7 +72,7 @@ const XmasGamesSite = () => {
     },
     {
       id: 8,
-      title: "Elephant Gift Exchange",
+      title: "White Elephant",
       emoji: "🎁",
       gif: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW1mb3djZWdicWYyaWc5OXZwam4zeWJ5bTV1YjQxdGxia3BhOGF3cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/CnmuHjbn0U0tW8y0ur/giphy.gif",
       isTeam: false,
