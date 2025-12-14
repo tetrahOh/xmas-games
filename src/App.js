@@ -72,11 +72,12 @@ const XmasGamesSite = () => {
     },
     {
       id: 8,
-      title: "White Elephant Gift Exchange",
+      title: "Elephant Gift Exchange",
       emoji: "🎁",
       gif: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW1mb3djZWdicWYyaWc5OXZwam4zeWJ5bTV1YjQxdGxia3BhOGF3cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/CnmuHjbn0U0tW8y0ur/giphy.gif",
       isTeam: false,
-      isSpecial: true
+      isSpecial: true,
+      customIcon: "🐘"
     }
   ];
 
@@ -231,7 +232,7 @@ const XmasGamesSite = () => {
             >
               <span className="flex items-center gap-2">
                 <Gift className="animate-pulse" />
-                {selectedGame ? `${games[selectedGame - 1].emoji} ${games[selectedGame - 1].title} ${games[selectedGame - 1].isTeam ? '👥' : '👤'}` : '🎮 Choose Your Game!'}
+                {selectedGame ? `${games[selectedGame - 1].emoji} ${games[selectedGame - 1].title} ${games[selectedGame - 1].customIcon || (games[selectedGame - 1].isTeam ? '👥' : '👤')}` : '🎮 Choose Your Game!'}
               </span>
               <ChevronDown className={`transform transition-transform ${isMenuOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -251,7 +252,7 @@ const XmasGamesSite = () => {
                     <span className={`font-bold group-hover:text-red-600 transition-colors flex-1 ${completedGames.includes(game.id) ? 'text-gray-400 line-through' : 'text-gray-800'}`}>
                       {game.title}
                     </span>
-                    <span className="text-2xl">{game.isTeam ? '👥' : '👤'}</span>
+                    <span className="text-2xl">{game.customIcon || (game.isTeam ? '👥' : '👤')}</span>
                     {game.id !== 8 && (
                       <button
                         onClick={(e) => {
@@ -305,7 +306,7 @@ const XmasGamesSite = () => {
               <span className="text-6xl mb-3 block">{games[selectedGame - 1].emoji}</span>
               <h2 className="text-4xl font-bold text-red-600 mb-2 flex items-center justify-center gap-3">
                 {games[selectedGame - 1].title}
-                <span className="text-3xl">{games[selectedGame - 1].isTeam ? '👥' : '👤'}</span>
+                <span className="text-3xl">{games[selectedGame - 1].customIcon || (games[selectedGame - 1].isTeam ? '👥' : '👤')}</span>
               </h2>
               {selectedGame !== 8 && (
                 <div className="flex justify-center">
